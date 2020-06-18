@@ -12,8 +12,8 @@ public class BasketService {
     private static final String BALLS_FILE = "src/main/resources/ball";
     private static final double DEFAULT_VOLUME = 50;
     private static final double DEFAULT_MAX_WEIGHT = 50;
-    private final Reader reader = new Reader();
-    private final Parser parser = new Parser();
+    private static final Reader reader = new Reader();
+    private static final Parser parser = new Parser();
 
     public Basket createBasket() {
         try {
