@@ -7,8 +7,8 @@ public class Ball {
     private final double weight;
     private final Color color;
 
-    public Ball(double volume, double weight, Color color) {
-        this.color = color;
+    public Ball(double volume, double weight, double color) {
+        this.color = Color.values()[(int)color];
         this.volume = volume;
         this.weight = weight;
     }

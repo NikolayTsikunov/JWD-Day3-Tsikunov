@@ -8,7 +8,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
-public class Reader {
+public class Reader { // TODO: 19.06.2020 Ready, but tests
+
     public List<String> readFromFile(String filePath) throws ProgramException {
         Path path = Paths.get(filePath);
         List<String> lines;
@@ -16,11 +17,14 @@ public class Reader {
         if(!Files.exists(path)) {
             throw new ProgramException("Can't find file");
         }
+
         try {
             lines = Files.readAllLines(path);
         } catch (IOException e) {
             throw new ProgramException("Can't read from file");
         }
+
         return lines;
     }
+
 }
