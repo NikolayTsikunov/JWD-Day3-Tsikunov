@@ -1,5 +1,6 @@
 package by.tsikunov.day3.parser;
 
+import by.tsikunov.day3.enumerator.Color;
 import by.tsikunov.day3.exception.ProgramException;
 
 public class Parser {
@@ -17,14 +18,14 @@ public class Parser {
             throw new ProgramException("Wrong number of parameters for basket!");
         }
 
-        double[] result = new double[NUMBER_BASKET_DATA];
+        double[] basketData = new double[NUMBER_BASKET_DATA];
         try {
-            result[VOLUME_INDEX] = Double.parseDouble(parameters[VOLUME_INDEX].trim());
-            result[WEIGHT_INDEX] = Double.parseDouble(parameters[WEIGHT_INDEX].trim());
+            basketData[VOLUME_INDEX] = Double.parseDouble(parameters[VOLUME_INDEX].trim());
+            basketData[WEIGHT_INDEX] = Double.parseDouble(parameters[WEIGHT_INDEX].trim());
         } catch (NumberFormatException e) {
             throw new ProgramException("Can't format data", e);
         }
-        return result;
+        return basketData;
     }
 
     public double[] parseBallData(String data) throws ProgramException {
@@ -34,15 +35,14 @@ public class Parser {
             throw new ProgramException("Wrong number of parameters for ball!");
         }
 
-        double[] result = new double[NUMBER_BALL_DATA];
+        double[] ballData = new double[NUMBER_BALL_DATA];
         try {
-            result[VOLUME_INDEX] = Double.parseDouble(parameters[VOLUME_INDEX].trim());
-            result[WEIGHT_INDEX] = Double.parseDouble(parameters[WEIGHT_INDEX].trim());
-            result[COLOR_INDEX] = Double.parseDouble(parameters[WEIGHT_INDEX].trim());
-
+            ballData[VOLUME_INDEX] = Double.parseDouble(parameters[VOLUME_INDEX].trim());
+            ballData[WEIGHT_INDEX] = Double.parseDouble(parameters[WEIGHT_INDEX].trim());
+            ballData[COLOR_INDEX] = Color.valueOf(parameters[COLOR_INDEX].trim()).ordinal();
         } catch (NumberFormatException e) {
             throw new ProgramException("Can't format data", e);
         }
-        return result;
+        return ballData;
     }
 }

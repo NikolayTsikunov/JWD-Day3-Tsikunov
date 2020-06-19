@@ -3,10 +3,10 @@ package by.tsikunov.day3.enumerator;
 public enum Color {
     RED("Red"),
     BLUE("Blue"),
-    Black("Black"),
+    BLACK("Black"),
     WHITE("White");
 
-    private String color;
+    private final String color;
     Color(String color) {
         this.color = color;
     }
