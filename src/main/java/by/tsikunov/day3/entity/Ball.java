@@ -24,4 +24,6 @@ public class Ball {
     public double getWeight() {
         return weight;
     }
+
+    // TODO: 18.06.2020 equals
 }

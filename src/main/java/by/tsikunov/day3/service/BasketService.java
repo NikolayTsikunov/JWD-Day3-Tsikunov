@@ -26,6 +26,7 @@ public class BasketService {
         return new Basket(DEFAULT_VOLUME, DEFAULT_MAX_WEIGHT);
     }
 
+//    // TODO: 18.06.2020
 //    public boolean fillBasket(Basket basket) {
 //        List<String> ballsParameters = reader.readFromFile(BALLS_FILE);
 //

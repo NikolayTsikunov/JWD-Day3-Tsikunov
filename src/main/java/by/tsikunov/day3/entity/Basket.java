@@ -6,8 +6,8 @@ import java.util.List;
 
 public class Basket {
 
-    private double volume;
-    private double maxWeight;
+    private final double volume;
+    private final double maxWeight;
     private ArrayList<Ball> balls;
 
     public Basket(double volume, double maxWeight) {
@@ -20,14 +20,16 @@ public class Basket {
         return Collections.unmodifiableList(balls); //Iterator???
     }
 
-    public boolean addBall(Ball ball) {
+    public boolean addBall(Ball ball) { // TODO: 18.06.2020 change volume and weight
         boolean result = false;
         if(this.volume - ball.getVolume() > 0 &&
                 this.maxWeight - ball.getWeight() > 0) {
             balls.add(ball);
-            this.volume -= ball.getVolume();
+            //this.volume -= ball.getVolume();
             result = true;
         }
         return result;
     }
+
+    // TODO: 18.06.2020 equals 
 }
