@@ -8,7 +8,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
-public class Reader { // TODO: 19.06.2020 Ready, but tests
+public class Reader {
 
     public List<String> readFromFile(String filePath) throws ProgramException {
         Path path = Paths.get(filePath);

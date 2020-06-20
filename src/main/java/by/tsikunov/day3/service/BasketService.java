@@ -1,30 +1,50 @@
 package by.tsikunov.day3.service;
 
+import by.tsikunov.day3.entity.Ball;
 import by.tsikunov.day3.entity.Basket;
-import by.tsikunov.day3.exception.ProgramException;
-import by.tsikunov.day3.parser.Parser;
-import by.tsikunov.day3.reader.Reader;
+import by.tsikunov.day3.enumerator.ProgramColor;
 
+import java.util.Iterator;
 import java.util.List;
 
 public class BasketService {
-    // TODO: 19.06.2020 Hernia, rewrite
-    private static final String BASKET_FILE = "src/main/resources/basket";
-    private static final String BALLS_FILE = "src/main/resources/ball";
-    private static final double DEFAULT_VOLUME = 50;
-    private static final double DEFAULT_MAX_WEIGHT = 50;
-    
-    private static final Reader reader = new Reader();
-    private static final Parser parser = new Parser();
-
-    public Basket createBasket() {
-        try {
-            List<String> parameters = reader.readFromFile(BASKET_FILE);
-            double[] parsedParameters = parser.parseBasketData(parameters.get(0));
-            return new Basket(parsedParameters[0], parsedParameters[1]);
-        } catch (ProgramException e) {
-            System.out.println(e.getMessage()); //Logger in the future
+    public boolean fillBasket(Basket basket, List<Ball> balls) {
+        if(basket == null || balls == null || balls.isEmpty()) {
+            return false;
         }
-        return new Basket(DEFAULT_VOLUME, DEFAULT_MAX_WEIGHT);
+        Iterator<Ball> ballIterator = balls.iterator();
+        while (ballIterator.hasNext()) {
+            Ball ball = ballIterator.next();
+            if(!basket.addBall(ball)) {
+                ballIterator.remove();
+            }
+        }
+        return true;
+    }
+
+    public int countColorBalls(Basket basket, ProgramColor programColor) {
+        if(basket == null) {
+            return -1;
+        }
+        List<Ball> balls = basket.getBalls();
+        int count = 0;
+        for (Ball ball : balls) {
+            if(ball.getProgramColor() == programColor) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public double calculateBasketWeight(Basket basket) {
+        if(basket == null) {
+            return -1;
+        }
+        List<Ball> balls = basket.getBalls();
+        double totalWeight = 0;
+        for (Ball ball : balls) {
+            totalWeight += ball.getWeight();
+        }
+        return totalWeight;
     }
 }

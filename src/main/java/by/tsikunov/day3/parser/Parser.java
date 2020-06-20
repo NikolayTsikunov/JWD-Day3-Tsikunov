@@ -1,8 +1,6 @@
 package by.tsikunov.day3.parser;
 
-import by.tsikunov.day3.enumerator.Color;
-
-// TODO: 19.06.2020 Ready, but tests
+import by.tsikunov.day3.enumerator.ProgramColor;
 
 public class Parser {
     private static final String SPLITTER = " ";
@@ -28,7 +26,7 @@ public class Parser {
         double[] ballData = new double[NUMBER_BALL_DATA];
         ballData[VOLUME_INDEX] = Double.parseDouble(parameters[VOLUME_INDEX].trim());
         ballData[WEIGHT_INDEX] = Double.parseDouble(parameters[WEIGHT_INDEX].trim());
-        ballData[COLOR_INDEX] = Color.valueOf(parameters[COLOR_INDEX].trim()).ordinal();
+        ballData[COLOR_INDEX] = ProgramColor.valueOf(parameters[COLOR_INDEX].trim()).ordinal();
 
         return ballData;
     }

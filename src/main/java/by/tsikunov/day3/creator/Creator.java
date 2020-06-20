@@ -8,13 +8,13 @@ import by.tsikunov.day3.parser.Parser;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Creator { // TODO: 19.06.2020 Ready, but tests
+public class Creator {
     private static final int VOLUME_INDEX = 0;
     private static final int WEIGHT_INDEX = 1;
     private static final int COLOR_INDEX = 2;
 
-    public List<Basket> createBasket(List<String> basketData) throws ProgramException {
-        if(basketData.isEmpty()) {
+    public List<Basket> createBaskets(List<String> basketData) throws ProgramException {
+        if(basketData == null || basketData.isEmpty()) {
             throw new ProgramException("Empty baskets entry data!");
         }
 
@@ -34,7 +34,7 @@ public class Creator { // TODO: 19.06.2020 Ready, but tests
 
     public List<Ball> createListBalls(List<String> ballsData) throws ProgramException {
 
-        if(ballsData.isEmpty()) {
+        if(ballsData == null || ballsData.isEmpty()) {
             throw new ProgramException("Empty balls entry data!");
         }
 

@@ -1,14 +1,14 @@
 package by.tsikunov.day3.entity;
 
-import by.tsikunov.day3.enumerator.Color;
+import by.tsikunov.day3.enumerator.ProgramColor;
 
 public class Ball {
     private final double volume;
     private final double weight;
-    private final Color color;
+    private final ProgramColor programColor;
 
     public Ball(double volume, double weight, double color) {
-        this.color = Color.values()[(int)color];
+        this.programColor = ProgramColor.values()[(int)color];
         this.volume = volume;
         this.weight = weight;
     }
@@ -17,8 +17,8 @@ public class Ball {
         return volume;
     }
 
-    public Color getColor() {
-        return color;
+    public ProgramColor getProgramColor() {
+        return programColor;
     }
 
     public double getWeight() {
@@ -36,7 +36,7 @@ public class Ball {
         Ball ball = (Ball) o;
         return Double.compare(volume, ball.volume) == 0 &&
                 Double.compare(weight, ball.weight) == 0 &&
-                color == ball.color;
+                programColor == ball.programColor;
     }
 
     @Override
@@ -45,13 +45,13 @@ public class Ball {
         double code = 31;
         result = code * result + volume;
         result = code * result + weight;
-        result = code * result + color.ordinal();
+        result = code * result + programColor.ordinal();
         return (int)result;
     }
 
     @Override
     public String toString() {
         return String.format("Ball volume = %.2f, weight= %.2f, color = %s",
-                this.volume, this.weight, this.color.getColor());
+                this.volume, this.weight, this.programColor.getColor());
     }
 }
