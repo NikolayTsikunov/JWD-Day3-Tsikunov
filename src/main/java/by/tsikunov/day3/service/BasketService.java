@@ -24,7 +24,7 @@ public class BasketService {
     }
 
     public int countColorBalls(Basket basket, ProgramColor programColor) {
-        if(basket == null) {
+        if(basket == null || programColor == null) {
             return -1;
         }
         List<Ball> balls = basket.getBalls();
