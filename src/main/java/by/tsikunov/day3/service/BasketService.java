@@ -8,6 +8,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class BasketService {
+
     public boolean fillBasket(Basket basket, List<Ball> balls) {
         if(basket == null || balls == null || balls.isEmpty()) {
             return false;
@@ -15,7 +16,7 @@ public class BasketService {
         Iterator<Ball> ballIterator = balls.iterator();
         while (ballIterator.hasNext()) {
             Ball ball = ballIterator.next();
-            if(!basket.addBall(ball)) {
+            if(basket.addBall(ball)) {
                 ballIterator.remove();
             }
         }
