@@ -14,7 +14,6 @@ public class Creator { // TODO: 19.06.2020 Ready, but tests
     private static final int COLOR_INDEX = 2;
 
     public List<Basket> createBasket(List<String> basketData) throws ProgramException {
-        // TODO: 19.06.2020 нул и пустой в тестах покрутить
         if(basketData.isEmpty()) {
             throw new ProgramException("Empty baskets entry data!");
         }
